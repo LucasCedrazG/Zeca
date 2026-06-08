@@ -467,8 +467,9 @@ def processar_comando_texto(texto_original):
     comando = remover_acentos(texto_original.lower().replace(".", "").replace("-", "").replace(",", "").replace("?", "").replace("  ", " ").strip())
     comando = comando.replace("jarvis", "zeca").replace("javis", "zeca").replace("javas", "zeca").replace("charves", "zeca").replace("chaves", "zeca").replace("zeka", "zeca").replace("seca", "zeca")
     
+    nome_correcao = AGENDA_CONTATOS.get("mae", "contato").lower()
     if "de um ar assadraco" in comando or "ar assadraco" in comando:
-        comando = comando.replace("de um ar assadraco", "gilmara cedraz").replace("ar assadraco", "gilmara cedraz")
+        comando = comando.replace("de um ar assadraco", nome_correcao).replace("ar assadraco", nome_correcao)
         
     print(f"🔮 Interpretando comando limpo: '{comando}'")
 
@@ -901,7 +902,8 @@ def escutar_continuamente():
                 wavfile.write(ARQUIVO_AUDIO, TAXA_AMOSTRAGEM, audio_completo)
                 
                 try:
-                    prompt_ajuda = "Zeca, Zeka, Seca, Gilmara Cedraz, Manuela Cedraz, Veigh, Cjota, KayBlack, MC Davi, trap brasileiro, funk, Spotify, tocar música, YouTube, pesquisar no youtube por, Google, no google por, hardware, lembrar, agendar, horas, dia, volume, VS Code, fechar, configurações, Discord, Steam, WhatsApp, para, mae, irma, enviar mensagem no whatsapp para, Netflix, Gerenciador, enviar, cancelar, corrigir, coigir, editar, apagar, previsão do tempo, como está o tempo, guarde que, guarda que, lembre que, quem é, onde fica."
+                    nomes_agenda = ", ".join(AGENDA_CONTATOS.values())
+                    prompt_ajuda = f"Zeca, Zeka, Seca, {nomes_agenda}, Veigh, Cjota, KayBlack, MC Davi, trap brasileiro, funk, Spotify, tocar música, YouTube, pesquisar no youtube por, Google, no google por, hardware, lembrar, agendar, horas, dia, volume, VS Code, fechar, configurações, Discord, Steam, WhatsApp, para, mae, irma, enviar mensagem no whatsapp para, Netflix, Gerenciador, enviar, cancelar, corrigir, coigir, editar, apagar, previsão do tempo, como está o tempo, guarde que, guarda que, lembre que, quem é, onde fica."
                     segmentos, info = modelo_ia.transcribe(ARQUIVO_AUDIO, language="pt", initial_prompt=prompt_ajuda)
                     
                     texto_final = ""
