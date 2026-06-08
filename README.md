@@ -46,7 +46,7 @@ Crie um arquivo `contatos.json` na raiz do projeto com os contatos para a automa
 ```json
 {
     "apelido": "Nome Real no WhatsApp",
-    "mae": "Gilmara Cedraz"
+    "mae": "Nome da sua mãe no WhatsApp"
 }
 ```
 
