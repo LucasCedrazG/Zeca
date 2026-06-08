@@ -1,0 +1,11 @@
+numpy
+sounddevice
+scipy
+faster-whisper
+spotipy
+PyAutoGUI
+requests
+edge-tts
+pygame
+python-dotenv
+pyperclip
