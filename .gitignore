@@ -1,0 +1,16 @@
+# Arquivos de Ambiente
+.env
+
+# Dados Pessoais e Memória do Assistente
+memoria_jarvis.txt
+ultima_conversa.txt
+lembretes.txt
+contatos.json
+
+# Arquivos de Áudio Temporários
+*.wav
+*.mp3
+
+# Cache do Python
+__pycache__/
+*.pyc
